@@ -1,0 +1,64 @@
+=============================================================
+Vault – a simple encrypted password manager
+=============================================================
+Copyright (c) 2026 Jose J. Cintron
+
+This product bundles the following third‑party components,
+each of which is distributed under the Apache License, Version 2.0.
+The full text of the Apache 2.0 license is included in the top‑level
+LICENSE file of this repository.
+
+-----------------------------------------------------------------
+argon2‑cffi
+-----------------------------------------------------------------
+Copyright (c) 2017‑2026
+    Paulo Eduardo Pereira <paulocaproni@gmail.com>
+    The argon2‑cffi contributors
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+The original source code for this library can be found at:
+    https://github.com/hynek/argon2-cffi
+
+-----------------------------------------------------------------
+cryptography
+-----------------------------------------------------------------
+Copyright (c) 2013‑2024 The cryptography developers and contributors
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+The original source code for this library can be found at:
+    https://github.com/pyca/cryptography
+
+-----------------------------------------------------------------
+Python Standard Library
+-----------------------------------------------------------------
+All other modules used by *vault.py* (argparse, base64, json, logging,
+os, shutil, sys, tempfile, dataclasses, pathlib, typing, getpass, etc.)
+are part of the Python Standard Library and are therefore covered by
+the Python Software Foundation License Version 2. See
+https://docs.python.org/3/license.html for details.
+
+=================================================================
+End of NOTICE
+=================================================================
