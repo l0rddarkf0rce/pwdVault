@@ -7,7 +7,6 @@
 
 ---  
 
-```markdown
 # vault.py — A Minimal, Secure, No‑Nonsense CLI Password Manager
 
 `vault.py` is a compact, security‑first password manager designed for people who prefer simple tools, transparent cryptography, and zero cloud dependencies. Everything lives in a single JSON file, encrypted locally, protected by modern algorithms, and wrapped in a clean CLI.
@@ -192,7 +191,7 @@ This project is intentionally small but built with serious cryptographic hygiene
 - Developers who want a transparent, inspectable password manager  
 - Security‑minded users who prefer local‑only tools  
 - Anyone learning about practical cryptography in Python  
-```
+
 
 
 ---
