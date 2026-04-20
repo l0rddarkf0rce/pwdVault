@@ -1,30 +1,35 @@
-# vault – a simple encrypted password manager  
+# vault.py — A Minimal, Secure, No‑Nonsense CLI Password Manager
 
 **Version:** 1.0 (first public release)  
 **Author:** Jose J. Cintron – <mailto:l0rddarkr0ce@hotmail.com>  
 
 *Store your site credentials safely in a locally-encrypted JSON vault, protected by a master password hashed with Argon2id.*
 
----  
-
-# vault.py — A Minimal, Secure, No‑Nonsense CLI Password Manager
-
 `vault.py` is a compact, security‑first password manager designed for people who prefer simple tools, transparent cryptography, and zero cloud dependencies. Everything lives in a single JSON file, encrypted locally, protected by modern algorithms, and wrapped in a clean CLI.
 
 It’s built for developers, tinkerers, and anyone who wants a lightweight alternative to heavyweight password vaults — without compromising on security.
+
+* The master password is never written to disk – only a **salted Argon2id hash** is stored.  
+* Each entry is encrypted with a **Fernet token** whose key is derived from the master password using **PBKDF2-HMAC-SHA256**.  
+* An **HMAC-SHA256** tag is calculated over the whole database (excluding the tag itself) to detect tampering.
 
 ---
 
 ## ✨ Features at a Glance
 
-- Argon2id master password hashing (memory‑hard, GPU‑resistant)
-- Per‑entry encryption using Fernet keys derived via PBKDF2‑HMAC‑SHA256
-- Vault‑wide integrity protection using HMAC‑SHA256
-- Atomic writes to avoid corruption
-- Interactive REPL mode for quick browsing and editing
-- Full CRUD operations (add, change, delete, list, print)
-- Zero external services — everything stays on your machine
-- Clear logging with separate UI and debug channels
+## Features  
+
+| ✅ | Feature |
+|---|---------|
+| ✅ | Master-password protection with Argon2id (memory-hard, time-hard). |
+| ✅ | Per-site encryption using Fernet (AES-128-CBC + HMAC-SHA256). |
+| ✅ | Automatic integrity protection with HMAC-SHA256. |
+| ✅ | Atomic writes – the vault is never left in a partially-written state. |
+| ✅ | Interactive REPL mode (no flags required). |
+| ✅ | Full CLI (add, change, delete, list, print). |
+| ✅ | Clear, colour-free UI output (pure `logging`). |
+| ✅ | Easy migration from legacy SHA-256 master-hash (already removed). |
+| ✅ | Simple, pip-installable dependencies only. |
 
 ---
 
@@ -59,6 +64,17 @@ Saving the vault:
 3. Atomically rename into place  
 
 This prevents partial writes or corruption during crashes.
+
+---
+
+## Prerequisites  
+
+* **Python 3.8+** (type-hints and `from __future__ import annotations` are used).  
+* **argon2-cffi** – Argon2id implementation (`pip install argon2-cffi`).  
+* **cryptography** – Fernet encryption (`pip install cryptography`).  
+* Standard library modules (`argparse`, `json`, `logging`, …) which require no extra installation.  
+
+All dependencies are **Apache-2.0** licensed and are listed in the `NOTICE` file.
 
 ---
 
@@ -190,80 +206,4 @@ This project is intentionally small but built with serious cryptographic hygiene
 
 - Developers who want a transparent, inspectable password manager  
 - Security‑minded users who prefer local‑only tools  
-- Anyone learning about practical cryptography in Python  
-
-
-
----
-## Table of Contents  
-
-1. [Overview](#overview)  
-2. [Features](#features)  
-3. [Prerequisites](#prerequisites)  
-4. [Installation](#installation)  
-5. [Quick start (JSON backend)](#quick-start-json-backend)  
-6. [Using SQLite (optional future release)](#using-sqlite-optional-future-release)  
-7. [Command-line interface](#command-line-interface)  
-8. [Configuration & files](#configuration--files)  
-9. [Testing](#testing)  
-10. [Contributing](#contributing)  
-11. [License & attribution](#license--attribution)  
-12. [Acknowledgements](#acknowledgements)  
-
----  
-
-## Overview  
-
-`vault.py` is a **single-file CLI tool** that lets you safely store usernames/passwords for any number of services.  
-
-* The master password is never written to disk – only a **salted Argon2id hash** is stored.  
-* Each entry is encrypted with a **Fernet token** whose key is derived from the master password using **PBKDF2-HMAC-SHA256**.  
-* An **HMAC-SHA256** tag is calculated over the whole database (excluding the tag itself) to detect tampering.  
-
-The current release stores the data in a **human-readable JSON file** (`passwords.json` by default).  A future release will optionally support an SQLite backend, but the JSON format is fully functional and portable.
-
----  
-
-## Features  
-
-| ✅ | Feature |
-|---|---------|
-| ✅ | Master-password protection with Argon2id (memory-hard, time-hard). |
-| ✅ | Per-site encryption using Fernet (AES-128-CBC + HMAC-SHA256). |
-| ✅ | Automatic integrity protection with HMAC-SHA256. |
-| ✅ | Atomic writes – the vault is never left in a partially-written state. |
-| ✅ | Interactive REPL mode (no flags required). |
-| ✅ | Full CLI (add, change, delete, list, print). |
-| ✅ | Clear, colour-free UI output (pure `logging`). |
-| ✅ | Easy migration from legacy SHA-256 master-hash (already removed). |
-| ✅ | Simple, pip-installable dependencies only. |
-
----  
-
-## Prerequisites  
-
-* **Python 3.8+** (type-hints and `from __future__ import annotations` are used).  
-* **argon2-cffi** – Argon2id implementation (`pip install argon2-cffi`).  
-* **cryptography** – Fernet encryption (`pip install cryptography`).  
-* Standard library modules (`argparse`, `json`, `logging`, …) which require no extra installation.  
-
-All dependencies are **Apache-2.0** licensed and are listed in the `NOTICE` file.
-
----  
-
-## Installation  
-
-```bash
-# 1️⃣ Clone the repository
-git clone https://github.com/your-name/vault.git
-cd vault
-
-# 2️⃣ (optional) create a virtual environment
-python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
-
-# 3️⃣ Install runtime dependencies
-pip install -r requirements.txt
-# requirements.txt contains:
-#   argon2-cffi
-#   cryptography
+- Anyone learning about practical cryptography in Python
