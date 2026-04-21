@@ -3,6 +3,9 @@
 **Version:** 1.0 (first public release)  
 **Author:** Jose J. Cintron – <l0rddarkr0ce@yahoo.com>  
 
+[![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)  
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)  
+
 *Store your site credentials safely in a locally-encrypted JSON vault, protected by a master password hashed with Argon2id.*
 
 `vault.py` is a compact, security‑first password manager designed for people who prefer simple tools, transparent cryptography, and zero cloud dependencies. Everything lives in a single JSON file, encrypted locally, protected by modern algorithms, and wrapped in a clean CLI.
