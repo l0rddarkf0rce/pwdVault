@@ -6,7 +6,7 @@
     Version: 1.0
     Date Created: 2026/02/07
     Author: Jose J. Cintron
-    E-mail: l0rddarkr0ce@hotmail.com
+    E-mail: l0rddarkr0ce@yahoo.com
     
 Description:
     A small CLI password manager that stores encrypted credentials in a
