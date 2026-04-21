@@ -1,7 +1,7 @@
 # vault.py — A Minimal, Secure, No‑Nonsense CLI Password Manager
 
 **Version:** 1.0 (first public release)  
-**Author:** Jose J. Cintron – <l0rddarkr0ce@hotmail.com>  
+**Author:** Jose J. Cintron – <l0rddarkr0ce@yahoo.com>  
 
 *Store your site credentials safely in a locally-encrypted JSON vault, protected by a master password hashed with Argon2id.*
 
